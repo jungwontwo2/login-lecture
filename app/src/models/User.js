@@ -6,9 +6,9 @@ class User{
     constructor(body){
         this.body=body;
     }
-    login(){
+    async login(){
         const client= this.body;
-        const {id,psword}= UserStorage.getUserInfo(client.id);
+        const {id,psword}=await UserStorage.getUserInfo(client.id);
         
         if(id){
             if(id===client.id && psword===client.psword){
@@ -17,7 +17,6 @@ class User{
             return {success:false, msg:"비밀번호가 틀렸습니다"};
         }
         return{success:false,msg:"존재하지 않는 아이디입니다."};
-        console.log(id,psword);
     }
     register(){
         const client= this.body;

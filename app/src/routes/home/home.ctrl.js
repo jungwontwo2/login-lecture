@@ -20,9 +20,9 @@ const output={
 
 
 const process={
-    login:(req,res)=>{
+    login: async (req,res)=>{
         const user = new User(req.body);
-        const response = user.login();
+        const response = await user.login();
         // const id = req.body.id;
         // const psword= req.body.psword;
         // //const userStorage = new UserStorage();
@@ -37,7 +37,7 @@ const process={
         // // }
         // response.success=true;
         // response.msg="로그인에 실패하셨습니다."
-        console.log(response);
+        //console.log(response);
         return res.json(response);
     },
     register:(req,res)=>{
