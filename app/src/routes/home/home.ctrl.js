@@ -40,9 +40,9 @@ const process={
         //console.log(response);
         return res.json(response);
     },
-    register:(req,res)=>{
+    register: async(req,res)=>{
         const user = new User(req.body);
-        const response = user.register();
+        const response = await user.register();
         // const id = req.body.id;
         // const psword= req.body.psword;
         // //const userStorage = new UserStorage();
